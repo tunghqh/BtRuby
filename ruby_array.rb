@@ -102,3 +102,284 @@ def exercise_16(array)
 end
 
 
+def exercise_17(array)
+    (array.size == 2) &&
+    (array.include? 4) || (array.include? 7)
+end
+
+
+def exercise_18(array)
+    (array.size == 2) &&
+    (array.include? 6) || (array.include? 9)
+end
+
+
+def exercise_19(array)
+    (array.size <= 2) &&
+    ((array[0] == 3 && array[1] == 3) || (array[0] == 5 && array[1] == 5))
+end
+
+
+def exercise_20(array)
+    array.each_index {
+        |i|
+        if array[i] == 3 && array[i+1] == 5
+            array[i+1] = 1
+            array
+        end
+    }
+end
+
+
+def exercise_21(array1,array2)
+    array1.sum > array2.sum ? array1 : array2
+end
+
+
+def exercise_22(array)
+    (array.size.even?) &&
+    array1 = [array[(array.size)/2 -1]]<<array[(array.size)/2]
+end
+
+
+def exercise_23(array1,array2)
+    (array1.size == 2 && array2.size == 2) &&
+    array3 = array1 + array2 
+end
+
+
+def exercise_24(array)
+    if array.size > 2
+        array1 = ([array[-1]] << array[1..-2] << array[0]).flatten
+    elsif array.size == 2
+        array1 = [array[-1]]<<array[0]
+    else
+        array
+    end
+end
+
+
+def exercise_25(array)
+    (array.size >= 3 && array.size.odd?) &&
+    half_array_size = array.size / 2
+    array1 = [array[half_array_size - 1]] << array[half_array_size] << array[half_array_size + 1]
+end
+
+
+def exercise_26(array)
+    array.size.odd? &&
+    array.max
+end
+
+
+def exercise_27(array)
+    array1 = array[0..2]
+end
+
+
+def exercise_28(array1,array2)
+    array3 = ([array1[0]] << array2[0]).compact
+end
+
+
+def exercise_29(array)
+    array.map {
+        |i|
+        if i.even?
+            i
+        end
+    }.compact.count
+end
+
+
+def exercise_30(array)
+    array.size >= 1 &&
+    array.max - array.min
+end
+
+
+def exercise_31(array)
+    dmax = array - [array.max]
+    dmin = dmax - [dmax.min]
+    (dmin.sum).to_f / dmin.size
+end
+
+
+def exercise_32(array)
+    temp = array.any? {
+        |e|
+        e == 17
+    }
+    if temp
+        find_i = array.index {
+        |i|
+        i == 17
+        }
+        array.delete_at(find_i)
+        array.delete_at(find_i)
+        array.sum
+    else
+        array.sum
+    end
+end
+
+ 
+def exercise_33(array)
+    array.select {
+        |i|
+        i == 3
+    }.sum == 9
+end
+
+
+def exercise_34(array)
+    array.size > 6 &&
+    array[2] > array[5]
+end
+
+
+def exercise_35(array)
+    array.all?{
+        |i|
+        i == 3 || i == 5
+    }
+end
+
+
+def exercise_36(array)
+    (array.include? 3) || (array.include? 5)
+end
+
+
+def exercise_37(array,num)
+    i = 0
+    while i < array.size
+        if array[i] == num && array[i+1] == num
+            return true
+        end
+        i += 1
+    end
+    return false
+end
+
+
+def exercise_38(array)
+    i = 0
+    while i < array.size
+        if array[i] == 3 && array[i+1] == 3
+            return true
+        elsif array[i] == 5 && array[i+1] == 5
+            return true
+        end
+        i += 1
+    end
+    return false
+end
+
+
+def exercise_39(array)
+    i = 0
+    while i < array.size
+        if array[i] == 6 && array[i+1] == 6
+            return true
+        elsif array[i] == 6 && array[i+2] == 6
+            return true
+        end
+        i += 1
+    end
+    return false
+end
+
+
+def exercise_40(array)
+    temp = false
+    i = 0
+    while i < array.size
+        if array[i] == 2
+            temp = true
+        end
+        if temp && array[i] == 3
+            return true
+        end
+        i += 1
+    end
+    return false
+end
+
+# !
+def exercise_41(array)
+    count = 0
+    i = 0
+    if array.size >= 1 && array[0] == 2
+        count += 1
+    end
+    while i < array.size
+        if (array[i] == 2 && array[i+1] == 2)
+            return false
+        end
+        if array[i] == 2
+            count += 1
+        end
+        i += 1
+    end
+    return count == 3
+end
+
+
+def exercise_42(array)
+    puts "Original array:\n#{array}"
+    puts "Index Hash:"
+    puts Hash[array.zip]
+end
+
+
+def exercise_43(array)
+    puts "Original array:\n#{array}"
+    puts "Frequency of numbers:"
+    puts array.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+end
+
+
+def exercise_44(array)
+    puts "Original array:\n#{array}"
+    puts "If all items are identical?"
+    puts array.all? {
+        |i|
+        i == array[0]
+    }
+end
+
+
+def exercise_45(array,string)
+    puts "Original array:\n#{array}"
+    puts "Search items start with '#{string}':"
+    p array.select {
+        |i| 
+        i.start_with?(string)
+    }
+end
+
+
+def exercise_46(array)
+    puts "Original array:\n#{array}"
+    puts "Reverse array:"
+    p array.reverse
+end
+
+
+def exercise_47(array,num)
+    puts "Original array:\n#{array}"
+    puts "First #{num} elements:"
+    p array[0..num-1]
+end
+
+
+def exercise_48(array)
+    puts "Original array:\n#{array}"
+    puts "Sorted array of strings by length"
+    p array.sort_by{
+        |i|
+        i.size
+    }
+end
+exercise_48(["abcde", "abdf", "adeab", "abdgeee", "bdefa", "abc", "ab", "a", "bacdef"])
