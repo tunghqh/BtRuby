@@ -4,3 +4,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/MethodLength:
   Max: 1000
+Naming/MethodParameterName:
+  Enabled: false

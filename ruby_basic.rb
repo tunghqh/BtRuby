@@ -11,13 +11,13 @@ end
 def exercise_3
   x = 5
   z = 'a'
-  if x.positive?
-    i = 1
-    while i <= x
-      puts z.to_s
-      z += 'a'
-      i += 1
-    end
+  return unless x.positive?
+
+  i = 1
+  while i <= x
+    puts z.to_s
+    z += 'a'
+    i += 1
   end
 end
 
@@ -91,7 +91,7 @@ end
 
 def exercise_14
   puts "Input the radius of the circle: #{r = gets.to_f}"
-  puts "The volume of the sphere is : #{(4 * Math::PI * r ** 3) / 3}"
+  puts "The volume of the sphere is : #{(4 * Math::PI * r**3) / 3}"
 end
 
 def exercise_15(txt)
@@ -218,7 +218,7 @@ def exercise_36(a, b)
 end
 
 def exercise_37(a, b)
-  ((a >= 10 && a <= 20) && (b >= 10 && b <= 20)) || ((a >= 20 && a <= 30) && (b >= 20 && b <= 30))
+  ((10..20).include?(a) && (10..20).include?(b)) || ((20..30).include?(a) && (20..30).include?(b))
 end
 
 def exercise_38(a, b)
@@ -302,13 +302,9 @@ def exercise_48(a, b, c)
 end
 
 def exercise_49(a, b, c)
-  if (a < 20 || b < 20 || c < 20) || (a > b || a > c || b > a || b > c || c > a || c > b)
-    true
-  else
-    false
-  end
+  return false if (a == b && a == c) && (a < 20 && b < 20 && c < 20)
 end
-
+puts exercise_49(50,30,51)
 def exercise_50(a, b)
   if a == b
     0

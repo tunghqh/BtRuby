@@ -60,9 +60,9 @@ end
 def exercise_13(array)
   array.size == 3 &&
     if array[0] > array[-1]
-      array.map { |i| i = array[0] }
+      array.map { |_i| array[0] }
     elsif array[0] < array[-1]
-      array.map { |i| i = array[-1] }
+      array.map { |_i| array[-1] }
     end
 end
 
@@ -185,7 +185,7 @@ def exercise_34(array)
 end
 
 def exercise_35(array)
-  array.all? { |i| i == 3 || i == 5 }
+  array.all? { |i| [3, 5].include?(i) }
 end
 
 def exercise_36(array)
@@ -195,9 +195,7 @@ end
 def exercise_37(array, num)
   i = 0
   while i < array.size
-    if array[i] == num && array[i + 1] == num
-      return true
-    end
+    return true if array[i] == num && array[i + 1] == num
 
     i += 1
   end
@@ -207,11 +205,8 @@ end
 def exercise_38(array)
   i = 0
   while i < array.size
-    if array[i] == 3 && array[i + 1] == 3
-      return true
-    elsif array[i] == 5 && array[i + 1] == 5
-      return true
-    end
+    return true if (array[i] == 3 && array[i + 1] == 3) || (array[i] == 5 && array[i + 1] == 5)
+
     i += 1
   end
   false
@@ -220,11 +215,8 @@ end
 def exercise_39(array)
   i = 0
   while i < array.size
-    if array[i] == 6 && array[i + 1] == 6
-      return true
-    elsif array[i] == 6 && array[i + 2] == 6
-      return true
-    end
+    return true if (array[i] == 6 && array[i + 1] == 6) || (array[i] == 6 && array[i + 2] == 6)
+
     i += 1
   end
   false
@@ -242,7 +234,6 @@ def exercise_40(array)
   false
 end
 
-# !
 def exercise_41(array)
   count = 0
   i = 0
